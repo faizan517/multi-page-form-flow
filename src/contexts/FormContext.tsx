@@ -60,6 +60,8 @@ type FormContextType = {
   goToPreviousStep: () => void;
   goToStep: (step: number) => void;
   totalSteps: number;
+  benefitType: string;
+  setBenefitType: (type: string) => void;
 };
 
 const defaultFormData: FormData = {
@@ -114,6 +116,7 @@ const FormContext = createContext<FormContextType | undefined>(undefined);
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const [currentStep, setCurrentStep] = useState(1);
+  const [benefitType, setBenefitType] = useState('universal'); // Default to 'universal'
   const totalSteps = 5;
 
   const updateFormData = (field: keyof FormData, value: string) => {
@@ -150,7 +153,9 @@ export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         goToNextStep,
         goToPreviousStep,
         goToStep,
-        totalSteps
+        totalSteps,
+        benefitType,
+        setBenefitType
       }}
     >
       {children}
