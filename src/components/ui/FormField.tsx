@@ -11,6 +11,7 @@ interface FormFieldProps {
   options?: Array<{ value: string; label: string }>;
   className?: string;
   helpText?: string;
+  disabled?: boolean; // Added disabled property
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -21,6 +22,7 @@ const FormField: React.FC<FormFieldProps> = ({
   options = [],
   className = '',
   helpText,
+  disabled = false, // Default value is false
 }) => {
   const { formData, updateFormData } = useFormContext();
 
@@ -39,6 +41,7 @@ const FormField: React.FC<FormFieldProps> = ({
               value={(formData as any)[fieldName] || ''}
               onChange={handleChange}
               className="block w-full px-4 py-2.5 pr-10 bg-white border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              disabled={disabled}
             >
               <option value="">{placeholder || 'Select your option'}</option>
               {options.map((option) => (
@@ -63,6 +66,7 @@ const FormField: React.FC<FormFieldProps> = ({
               onChange={handleChange}
               placeholder={placeholder || 'Enter percentage'}
               className="block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              disabled={disabled}
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
               <span className="text-gray-500">%</span>
@@ -79,6 +83,7 @@ const FormField: React.FC<FormFieldProps> = ({
             onChange={handleChange}
             placeholder={placeholder || 'Enter number'}
             className="block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            disabled={disabled}
           />
         );
       default:
@@ -91,6 +96,7 @@ const FormField: React.FC<FormFieldProps> = ({
             onChange={handleChange}
             placeholder={placeholder || 'Enter text'}
             className="block w-full px-4 py-2.5 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            disabled={disabled}
           />
         );
     }
