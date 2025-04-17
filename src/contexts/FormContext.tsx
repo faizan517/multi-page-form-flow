@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type FormData = {
@@ -50,6 +49,18 @@ type FormData = {
   mentorIndividualWallet: string;
   opdComplementary: string;
   adminFee: string;
+  
+  // Additional fields for IPD & OPD Layout
+  ipdPremiumPerEmployee: string;
+  opdPremiumPerEmployee: string;
+  adminFeePerEmployee: string;
+  totalPremium: string;
+  dailyRoomBoardLimit: string;
+  
+  // Additional fields for IPD, OPD Clinics, Pharmacy and Lab Layout
+  opdClinicsPremium: string;
+  opdPharmacyPremium: string;
+  opdLabPremium: string;
 };
 
 type FormContextType = {
@@ -109,6 +120,17 @@ const defaultFormData: FormData = {
   mentorIndividualWallet: '',
   opdComplementary: '',
   adminFee: '',
+  
+  // Default values for new fields
+  ipdPremiumPerEmployee: '',
+  opdPremiumPerEmployee: '',
+  adminFeePerEmployee: '',
+  totalPremium: '',
+  dailyRoomBoardLimit: '',
+  
+  opdClinicsPremium: '',
+  opdPharmacyPremium: '',
+  opdLabPremium: '',
 };
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
