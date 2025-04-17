@@ -9,9 +9,11 @@ import MaternityBenefit from './MaternityBenefit';
 import MentorAppBenefit from './MentorAppBenefit';
 import OPDWellnessBenefit from './OPDWellnessBenefit';
 import FinancialSection from './FinancialSection';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FormContainer: React.FC = () => {
   const { currentStep } = useFormContext();
+  const isMobile = useIsMobile();
 
   // Render the appropriate form step based on currentStep
   const renderFormStep = () => {
@@ -32,13 +34,13 @@ const FormContainer: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex flex-col md:flex-row h-screen bg-gray-50">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header username="Fazi" />
         <div className="flex-1 overflow-y-auto">
           <FormTabs />
-          <div>
+          <div className={isMobile ? "px-2" : ""}>
             {renderFormStep()}
           </div>
         </div>

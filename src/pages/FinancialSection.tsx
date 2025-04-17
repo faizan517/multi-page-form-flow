@@ -7,9 +7,11 @@ import FormActions from '@/components/financial/FormActions';
 import UniversalLimitForm from '@/components/financial/UniversalLimitForm';
 import IPDOPDForm from '@/components/financial/IPDOPDForm';
 import IPDOPDSplitForm from '@/components/financial/IPDOPDSplitForm';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FinancialSection: React.FC = () => {
   const { goToPreviousStep, benefitType, formData, updateFormData } = useFormContext();
+  const isMobile = useIsMobile();
 
   // Calculate total premium when values change (for ipd-opd and ipd-opd-split types)
   useEffect(() => {
@@ -66,8 +68,8 @@ const FinancialSection: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50">
-      <div className="mb-8">
+    <div className={`p-3 md:p-6 bg-gray-50 ${isMobile ? 'space-y-4' : ''}`}>
+      <div className="mb-4 md:mb-8">
         <ServiceProviderInfo />
       </div>
       
