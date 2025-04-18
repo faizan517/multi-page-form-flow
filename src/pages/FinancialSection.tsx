@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useFormContext } from '@/contexts/FormContext';
 import { toast } from '@/hooks/use-toast';
@@ -11,7 +12,7 @@ import { createBenefitPlan, getPlansByCorporateId } from '@/services/benefitStru
 import { useQuery } from '@tanstack/react-query';
 
 const FinancialSection: React.FC = () => {
-  const { goToPreviousStep, benefitType, formData } = useFormContext();
+  const { goToPreviousStep, benefitType, formData, updateFormData } = useFormContext();
   const isMobile = useIsMobile();
 
   // Fetch existing plans
