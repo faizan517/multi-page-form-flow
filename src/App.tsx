@@ -5,13 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-
-// Import page components for direct navigation (if needed)
 import HospitalizationBenefit from "./pages/HospitalizationBenefit";
 import MaternityBenefit from "./pages/MaternityBenefit";
 import MentorAppBenefit from "./pages/MentorAppBenefit";
 import OPDWellnessBenefit from "./pages/OPDWellnessBenefit";
 import FinancialSection from "./pages/FinancialSection";
+import CorporateList from "./pages/CorporateList";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +30,7 @@ const App = () => (
           <Route path="/reports" element={<Index />} />
           <Route path="/export" element={<Index />} />
           <Route path="/support" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/corporate-list" element={<CorporateList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

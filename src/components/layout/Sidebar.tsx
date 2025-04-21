@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
@@ -20,10 +19,10 @@ const Sidebar = () => {
   const { setBenefitType } = useFormContext();
 
   const handleCorporatesClick = () => {
-    setBenefitDialogOpen(true);
+    navigate("/corporate-list");
   };
 
-  const handleBenefitTypeSelect = (type: string) => {
+  const handleBenefitTypeSelect = (type) => {
     setBenefitType(type);
     setBenefitDialogOpen(false);
     navigate('/');
@@ -39,9 +38,9 @@ const Sidebar = () => {
     },
     { 
       id: 'corporates', 
-      label: 'Corporates List', 
+      label: 'Corporate List', 
       icon: <Building2 className="w-5 h-5" />, 
-      path: '/corporates',
+      path: '/corporate-list',
       onClick: handleCorporatesClick
     },
     { 
