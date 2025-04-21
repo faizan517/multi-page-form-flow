@@ -11,7 +11,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { createBenefitPlan, getPlansByCorporateId } from '@/services/benefitStructureApi';
 import { useQuery } from '@tanstack/react-query';
 
-const FinancialSection: React.FC = () => {
+const FinancialSection = () => {
   const { goToPreviousStep, benefitType, formData, updateFormData } = useFormContext();
   const isMobile = useIsMobile();
 
@@ -162,3 +162,4 @@ const FinancialSection: React.FC = () => {
 };
 
 export default FinancialSection;
+
